@@ -1,0 +1,18 @@
+<div *ngIf="products.length > 0; else noProducts" class="product-list">
+  <div class="product-card" *ngFor="let product of products">
+    <div class="card p-3 shadow-sm">
+      <h4 class="card-title">{{ product.name }}</h4>
+      <p class="text-muted mb-1">Category: {{ product.category }}</p>
+      <p class="fw-bold">{{ product.price | currency }} USD</p>
+      <button class="btn btn-primary w-100" [routerLink]="['/product', product.id]">
+        View Details
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #noProducts>
+  <p class="text-center mt-5">
+    {{ loading ? 'Loading products...' : 'No products available.' }}
+  </p>
+</ng-template>

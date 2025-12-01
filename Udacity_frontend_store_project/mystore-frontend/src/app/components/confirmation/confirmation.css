@@ -1,0 +1,8 @@
+.confirmation {
+  text-align: center;
+  padding: 40px;
+  background-color: white;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+}
