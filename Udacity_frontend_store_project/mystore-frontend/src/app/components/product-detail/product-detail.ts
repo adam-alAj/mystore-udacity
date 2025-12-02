@@ -49,6 +49,9 @@ export class ProductDetailComponent implements OnInit {
       }
     });
   }
+   onQuantityChange(): void {
+  console.log('Quantity changed to:', this.quantity);
+}
 
   addToCart(): void {
     if (this.product) {
@@ -56,4 +59,5 @@ export class ProductDetailComponent implements OnInit {
       alert('Product added to cart!');
     }
   }
+ 
 }

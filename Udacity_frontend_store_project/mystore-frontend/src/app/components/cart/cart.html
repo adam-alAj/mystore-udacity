@@ -7,45 +7,20 @@
 
   <!-- Cart items -->
   <div *ngIf="cart.length > 0" class="row g-4">
-
     <div *ngFor="let item of cart" class="col-md-6">
-      <div class="card p-3 shadow-sm d-flex flex-row align-items-center">
-
-        <img
-          [src]="item.product.url"
-          [alt]="item.product.name"
-          class="me-3 rounded"
-          style="width: 100px; height: 100px; object-fit: cover;"
-        />
-
-        <div class="flex-grow-1">
-          <h5 class="mb-1">{{ item.product.name }}</h5>
-          <p class="mb-1">Quantity: <strong>{{ item.quantity }}</strong></p>
-          <p class="fw-bold">
-            {{ item.product.price * item.quantity }} USD
-          </p>
-        </div>
-
-        <button
-          class="btn btn-danger btn-sm"
-          (click)="removeFromCart(item.product.id)">
-          Remove
-        </button>
-
-      </div>
+      <app-cart-item
+        [item]="item"
+        (removed)="removeFromCart($event)">
+      </app-cart-item>
     </div>
+  </div>
 
-    <!-- Total + Checkout -->
-    <div class="col-12 mt-4 text-center">
-      <h3 class="fw-bold">Total: {{ total }} USD</h3>
-
-      <button
-        class="btn btn-primary mt-3"
-        [routerLink]="['/checkout']">
-        Proceed to Checkout
-      </button>
-    </div>
-
+  <!-- Total + Checkout -->
+  <div *ngIf="cart.length > 0" class="col-12 mt-4 text-center">
+    <h3 class="fw-bold">Total: {{ total }} USD</h3>
+    <button class="btn btn-primary mt-3" [routerLink]="['/checkout']">
+      Proceed to Checkout
+    </button>
   </div>
 
 </div>

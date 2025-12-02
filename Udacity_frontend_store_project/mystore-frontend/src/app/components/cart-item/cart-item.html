@@ -1,0 +1,9 @@
+<div class="cart-item">
+  <img [src]="item.product.url" [alt]="item.product.name" />
+  <div>
+    <h5>{{ item.product.name }}</h5>
+    <p>Quantity: {{ item.quantity }}</p>
+    <p>Total: {{ item.product.price * item.quantity }} USD</p>
+  </div>
+  <button class="btn btn-danger btn-sm" (click)="onRemove()">Remove</button>
+</div>
